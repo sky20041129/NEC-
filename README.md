@@ -1,6 +1,2 @@
-# NEC-
-BGT_disk test
-This is for the BGT disk test.
-
-1.Wait initiaize completed.
-2.Execute CC function.
+#autoping.py
+This tool is for autoping client and sever on tkinter GUI.
