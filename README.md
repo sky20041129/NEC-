@@ -1,2 +1,4 @@
-#ruby.py
-This tool is for BGT_disk test.
+#getsnmp.py
+#getsnmpgui.py
+
+This tool is for analysis the snmptxt result.
