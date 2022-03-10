@@ -41,3 +41,6 @@ elif ping == "4s":
             print (ip + " ping pass")
         else:
             print (ip + " ping fail")
+            
+           
+os.system("pause")
