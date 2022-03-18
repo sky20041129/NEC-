@@ -1,0 +1,101 @@
+import subprocess
+import os
+
+#No error handling
+#subprocess.call('netsh interface ip set address "srv1" static 192.168.10.1 255.255.255.0')
+
+s_or_c,port,ip= (input("Please input server or client and port number and ip type...."
+                        "\n For example:\n srv 1 ipv4 -> for 1 port \n srv12 2 ipv4 -> for 2 ports \n srv1234 ipv4 for -> for 4 ports \n").split())
+
+ports=[0,1,2,3,4]
+server= [0,10.1,20.2,30.3,40.4]
+client= [0,10.11,20.22,30.3,40.4]
+
+portt=[1,2]
+serverr= [10.1,20.2]
+clientt= [10.11,20.22]
+
+porttt=[1,2,3,4]
+serverrr= [10.1,20.2,30.3,40.4]
+clienttt= [10.11,20.22,30.3,40.4]
+
+if s_or_c == "srv":
+    if port == "1" or "2" or "3" or "4":
+        if ip == "ipv4":
+            netshcmd = subprocess.Popen(
+                'netsh interface ip set address "srv"' + str(ports[int(port)]) + ' static 192.168.' + str(
+                    server[int(port)]) + ' 255.255.255.0'
+                , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            output, errors = netshcmd.communicate()
+            if errors:
+                print("WARNING: ", errors)
+            else:
+                print("SUCCESS ", output)
+
+if s_or_c == "srv12":
+    if port =="2":
+        if ip == "ipv4":
+            for x, y in zip(portt, serverr):
+                netshcmd = subprocess.Popen(
+                    'netsh interface ip set address "srv"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                    , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+                output, errors = netshcmd.communicate()
+                if errors:
+                    print("WARNING: ", errors)
+                else:
+                    print("SUCCESS ", output)
+
+if s_or_c == "srv1234":
+    if port =="4":
+        if ip == "ipv4":
+            for x, y in zip(porttt, serverrr):
+                netshcmd = subprocess.Popen(
+                    'netsh interface ip set address "srv"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                    , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+                output, errors = netshcmd.communicate()
+                if errors:
+                    print("WARNING: ", errors)
+                else:
+                    print("SUCCESS ", output)
+
+
+if s_or_c == "cli":
+    if port == "1" or "2" or "3" or "4":
+        if ip == "ipv4":
+            netshcmd = subprocess.Popen(
+                'netsh interface ip set address "cli"' + str(ports[int(port)]) + ' static 192.168.' + str(
+                    client[int(port)]) + ' 255.255.255.0'
+                , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+            output, errors = netshcmd.communicate()
+            if errors:
+                print("WARNING: ", errors)
+            else:
+                print("SUCCESS ", output)
+
+if s_or_c == "cli12":
+    if port =="2":
+        if ip == "ipv4":
+            for x, y in zip(portt, serverr):
+                netshcmd = subprocess.Popen(
+                    'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                    , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+                output, errors = netshcmd.communicate()
+                if errors:
+                    print("WARNING: ", errors)
+                else:
+                    print("SUCCESS ", output)
+
+if s_or_c == "cli1234":
+    if port =="4":
+        if ip == "ipv4":
+            for x, y in zip(porttt, serverrr):
+                netshcmd = subprocess.Popen(
+                    'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                    , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+                output, errors = netshcmd.communicate()
+                if errors:
+                    print("WARNING: ", errors)
+                else:
+                    print("SUCCESS ", output)
+
+os.system("pause")
