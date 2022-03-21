@@ -5,7 +5,7 @@ import os
 #subprocess.call('netsh interface ip set address "srv1" static 192.168.10.1 255.255.255.0')
 
 s_or_c,port= (input("Please input server or client and port number and ip type...."
-                        "\n For example:\n srv_one 1  -> for 1 port \n srv12 2  -> for 2 ports \n srv1234 4  for -> for 4 ports \n cli_one 1-> for 1 port").split())
+                        "\n For example:\n srv_one 1  -> for 1 port \n srv12 2  -> for 2 ports \n srv1234 4  for -> for 4 ports \n cli_one 1-> for 1 port\n").split())
 
 ports=[0,1,2,3,4]
 server= [0,10.1,20.2,30.3,40.4]
