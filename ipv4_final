@@ -11,7 +11,7 @@ s_or_c,port= (input("Please follow below format to set IP and mask.This tool can
 
 ports=[0,1,2,3,4]
 server= [0,10.1,20.2,30.3,40.4]
-client= [0,10.11,20.22,30.3,40.4]
+client= [0,10.11,20.22,30.33,40.44]
 
 portt=[1,2]
 serverr= [10.1,20.2]
@@ -19,7 +19,7 @@ clientt= [10.11,20.22]
 
 porttt=[1,2,3,4]
 serverrr= [10.1,20.2,30.3,40.4]
-clienttt= [10.11,20.22,30.3,40.4]
+clienttt= [10.11,20.22,30.33,40.44]
 
 if s_or_c == "srv_one":
     if port == "1" or "2" or "3" or "4":
@@ -72,7 +72,7 @@ if s_or_c == "cli_one":
 
 if s_or_c == "cli12":
     if port =="2":
-        for x, y in zip(portt, serverr):
+        for x, y in zip(portt, clientt):
             netshcmd = subprocess.Popen(
                 'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
                 , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
@@ -84,7 +84,7 @@ if s_or_c == "cli12":
 
 if s_or_c == "cli1234":
     if port =="4":
-        for x, y in zip(porttt, serverrr):
+        for x, y in zip(porttt, clienttt):
             netshcmd = subprocess.Popen(
                 'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
                 , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
