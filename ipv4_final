@@ -6,8 +6,8 @@ import os
 
 s_or_c,port= (input("Please follow below format to set IP and mask.This tool can set single port(1-4) or set 2 or 4 at time."
                         "\n For example:\n srv_one 1   -> for server single port \n srv12 2     "
-                    "-> for server 2 ports \n srv1234 4   -> for server 4 ports \n cli_one 1   -> for client single port \n "
-                    "cli12 2    -> for client 2 ports \n cli1234 4   -> for client 4 ports \n").split())
+                    "-> for server 2 ports \n srv1234 4   -> for server 4 ports \n cl_one 1   -> for client single port \n "
+                    "cl12 2    -> for client 2 ports \n cl1234 4   -> for client 4 ports \n").split())
 
 ports=[0,1,2,3,4]
 server= [0,10.1,20.2,30.3,40.4]
@@ -58,10 +58,10 @@ if s_or_c == "srv1234":
                 print("SUCCESS ", output)
 
 
-if s_or_c == "cli_one":
+if s_or_c == "cl_one":
     if port == "1" or "2" or "3" or "4":
             netshcmd = subprocess.Popen(
-                'netsh interface ip set address "cli"' + str(ports[int(port)]) + ' static 192.168.' + str(
+                'netsh interface ip set address "cl"' + str(ports[int(port)]) + ' static 192.168.' + str(
                     client[int(port)]) + ' 255.255.255.0'
                 , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             output, errors = netshcmd.communicate()
@@ -70,11 +70,11 @@ if s_or_c == "cli_one":
             else:
                 print("SUCCESS ", output)
 
-if s_or_c == "cli12":
+if s_or_c == "cl12":
     if port =="2":
         for x, y in zip(portt, clientt):
             netshcmd = subprocess.Popen(
-                'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                'netsh interface ip set address "cl"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
                 , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             output, errors = netshcmd.communicate()
             if errors:
@@ -82,11 +82,11 @@ if s_or_c == "cli12":
             else:
                 print("SUCCESS ", output)
 
-if s_or_c == "cli1234":
+if s_or_c == "cl1234":
     if port =="4":
         for x, y in zip(porttt, clienttt):
             netshcmd = subprocess.Popen(
-                'netsh interface ip set address "cli"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
+                'netsh interface ip set address "cl"' + str(x) + ' static 192.168.' + str(y) + ' 255.255.255.0'
                 , shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
             output, errors = netshcmd.communicate()
             if errors:
