@@ -15,7 +15,7 @@ if ping == "2c":
             print ("**" + ip + "no respone ")
 
         else:
-            print ("**"ip + " ping fail")
+            print ("**" + ip + " ping fail")
 
 
 if ping == "2s":
@@ -29,7 +29,7 @@ if ping == "2s":
             print ("**" + ip + "no respone ")
 
         else:
-            print ("**"ip + " ping fail")
+            print ("**" + ip + " ping fail")
 
 
 if ping == "4c":
@@ -43,7 +43,7 @@ if ping == "4c":
             print ("**" + ip + "no respone ")
 
         else:
-            print ("**"ip + " ping fail")
+            print ("**" + ip + " ping fail")
 
 
 if ping == "4s":
@@ -57,7 +57,7 @@ if ping == "4s":
             print ("**" + ip + "no respone ")
 
         else:
-            print ("**"ip + " ping fail")
+            print ("**" + ip + " ping fail")
 
 
 os.system("pause")
